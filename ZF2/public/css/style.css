@@ -35,3 +35,15 @@ div.container a.brand {
     margin-left: 0;
     padding: 8px 20px 12px 40px;
 }
+
+#btn-new{
+    margin:0 0 0 0;
+}
+#float-r{
+    float: right;
+    margin-top: 0px;
+}
+
+#hr{
+    margin-top: -10px;
+}
