@@ -1,0 +1,26 @@
+<br><h1><label>Biblioteca de álbuns</label></h1>
+<hr id="hr"/>
+
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <div class="panel-title">
+            Detalhes do Álbum ID = <?php echo $this->id; ?>            
+        </div>
+    </div>
+    <div class="panel-body">
+        <dl class="dl-horizontal">
+            <dt>Artista:</dt>
+            <dd><?php echo $this->form["artista"]; ?></dd>
+            <dt>Título:</dt>
+            <dd><?php echo $this->form["titulo"]; ?></dd>
+            <dt>Gênero:</dt>
+            <dd><?php echo $this->form["genero"]; ?></dd>
+            <dt>Ano:</dt>
+            <dd><?php echo $this->form["ano"]; ?></dd>
+        </dl>
+    </div>
+    <div class="panel-footer">
+        <a href="<?php echo $this->url('albuns', array('action' => 'editar', 'id' => $this->id)); ?>" class="btn btn-success btn-sm">Editar álbum</a>
+        <a href="<?php echo $this->url('albuns'); ?>" class="btn btn-default btn-sm">Voltar</a>
+    </div>
+</div>

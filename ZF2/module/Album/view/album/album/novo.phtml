@@ -1,0 +1,46 @@
+<br><h1><label>Biblioteca de álbuns</label></h1>
+
+<hr id="hr"/>
+
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <div class="panel-title">
+            Novo Álbum          
+        </div>
+    </div>
+    <form class="form-horizontal" role="form" method="POST" action="<?php echo $this->url('albuns', array('action' => 'adicionar')); ?>">
+        <div class="panel-body">
+            <div class="form-group">
+                <label for="inputArtista" class="col-lg-3 col-md-3 control-label">Artista:</label>
+                <div class="col-lg-9 col-md-9">
+                    <input type="text" name="artista" class="form-control" id="inputNome" placeholder="Nome completo">
+                </div>
+            </div>
+ 
+            <div class="form-group">
+                <label for="inputTitulo" class="col-lg-3 col-md-3 control-label">Título do álbum:</label>
+                <div class="col-lg-9  col-md-9">
+                    <input type="text" name="titulo" class="form-control" id="inputTelefonePrincipal" placeholder="Título do álbum">
+                </div>
+            </div>
+ 
+            <div class="form-group">
+                <label for="inputGenero" class="col-lg-3 col-md-3 control-label">Gênero:</label>
+                <div class="col-lg-9  col-md-9">
+                    <input type="text" name="genero" class="form-control" id="inputTelefoneSecundario" placeholder="Gênero musical">
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="inputAno" class="col-lg-3 col-md-3 control-label">Ano:</label>
+                <div class="col-lg-9  col-md-9">
+                    <input type="text" name="ano" class="form-control" id="inputTelefoneSecundario" placeholder="Ano">
+                </div>
+            </div>
+        </div>
+        <div class="panel-footer">
+            <button type="submit" class="btn btn-primary">Salvar álbum</button>
+            <a href="<?php echo $this->url('albuns'); ?>" class="btn btn-default">Voltar</a>
+        </div>
+    </form>
+</div>﻿

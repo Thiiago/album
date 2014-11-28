@@ -4,7 +4,8 @@ return array(
     # definir e gerenciar controllers
     'controllers' => array(
         'invokables' => array(
-            'HomeController' => 'Album\Controller\HomeController'
+            'HomeController' => 'Album\Controller\HomeController',
+            'AlbumController' => 'Album\Controller\AlbumController',
         ),
     ),
  
@@ -21,7 +22,31 @@ return array(
                     ),
                 ),
             ),
-
+            # literal para action sobre home
+            'sobre' => array(
+                'type'      => 'Literal',
+                'options'   => array(
+                    'route'    => '/sobre',
+                    'defaults' => array(
+                        'controller' => 'HomeController',
+                        'action'     => 'sobre',
+                    ),
+                ),
+            ),
+            'albuns' => array(
+                'type' => 'Segment',
+                'options' => array(
+                    'route' => '/albuns[/:action][/:id]',
+                    'constraints' => array(
+                        'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
+                        'id'     => '[0-9]+',
+                         ),
+                    'defaults' => array(
+                    'controller' => 'AlbumController',
+                    'action'     => 'index',
+                    ),
+                ),
+            ),
         ),
     ),
  
