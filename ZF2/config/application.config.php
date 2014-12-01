@@ -7,7 +7,9 @@
  */
 return array(
     'modules' => array(
-        'Album'
+        'Album',
+        'ZendDeveloperTools',
+        'BjyProfiler',
     ),
     'module_listener_options' => array(
         'module_paths' => array(

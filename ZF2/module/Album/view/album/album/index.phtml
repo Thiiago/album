@@ -27,63 +27,30 @@
     </thead>
 
     <tbody>
-        <tr>
-            <td>1</td>
-            <td>U2</td>
-            <td>Songs of Innocense</td>
-            <td>Rock</td>
-            <td>2014</td>
-            <td>
-                <a class="btn btn-xs btn-info" title="Visualizar" href="<?php echo $this->url('albuns', array("action" => "detalhes", "id" => 85,)); ?>"><span class="glyphicon glyphicon-new-window"></span></a>
-                <a class="btn btn-xs btn-warning" title="Editar" href="<?php echo $this->url('albuns', array("action" => "editar", "id" => 85,)); ?>"><span class="glyphicon glyphicon-edit"></span></a>
-                <a class="btn btn-xs btn-danger" title="Deletar" href="<?php echo $this->url('albuns', array("action" => "deletar", "id" => 85,)); ?>"><span class="glyphicon glyphicon-floppy-remove"></span></a>
-            </td>
-        </tr>
-
-        <tr>
-            <td>2</td>
-            <td>David Guetta</td>
-            <td>Listen (Deluxe Edition)</td>
-            <td>Dance, House, Eletrônica</td>
-            <td>2014</td>
-            <td>
-                <a class="btn btn-xs btn-info" title="Visualizar" href="<?php echo $this->url('albuns', array("action" => "detalhes", "id" => 85,)); ?>"><span class="glyphicon glyphicon-new-window"></span></a>
-                <a class="btn btn-xs btn-warning" title="Editar" href="<?php echo $this->url('albuns', array("action" => "editar", "id" => 85,)); ?>"><span class="glyphicon glyphicon-edit"></span></a>
-                <a class="btn btn-xs btn-danger" title="Deletar" href="<?php echo $this->url('albuns', array("action" => "deletar", "id" => 85,)); ?>"><span class="glyphicon glyphicon-floppy-remove"></span></a>
-            </td>
-        </tr>
-
-        <tr>
-            <td>3</td>
-            <td>Olly Murs</td>
-            <td>Never Been Better (Deluxe Edition)</td>
-            <td>Pop</td>
-            <td>2014</td>
-            <td>
-                <a class="btn btn-xs btn-info" title="Visualizar" href="<?php echo $this->url('albuns', array("action" => "detalhes", "id" => 85,)); ?>"><span class="glyphicon glyphicon-new-window"></span></a>
-                <a class="btn btn-xs btn-warning" title="Editar" href="<?php echo $this->url('albuns', array("action" => "editar", "id" => 85,)); ?>"><span class="glyphicon glyphicon-edit"></span></a>
-                <a class="btn btn-xs btn-danger" title="Deletar" href="<?php echo $this->url('albuns', array("action" => "deletar", "id" => 85,)); ?>"><span class="glyphicon glyphicon-floppy-remove"></span></a>
-            </td>
-        </tr>
-        
-        <tr>
-            <td>4</td>
-            <td>Alexandra Stan</td>
-            <td>Unlocked (International Edition)</td>
-            <td>Pop, R&B, Dance</td>
-            <td>2014</td>
-            <td>
-                <a class="btn btn-xs btn-info" title="Visualizar" href="<?php echo $this->url('albuns', array("action" => "detalhes", "id" => 85,)); ?>"><span class="glyphicon glyphicon-new-window"></span></a>
-                <a class="btn btn-xs btn-warning" title="Editar" href="<?php echo $this->url('albuns', array("action" => "editar", "id" => 85,)); ?>"><span class="glyphicon glyphicon-edit"></span></a>
-                <a class="btn btn-xs btn-danger" title="Deletar" href="<?php echo $this->url('albuns', array("action" => "deletar", "id" => 85,)); ?>"><span class="glyphicon glyphicon-floppy-remove"></span></a>
-            </td>
-        </tr>
-        
+        <?php foreach ($albuns as $album) : ?>
+            <tr>
+                <td><?php echo $this->escapeHtml($album->id);?></td>
+                <td><?php echo $this->escapeHtml($album->artista);?></td>
+                <td><?php echo $this->escapeHtml($album->titulo);?></td>
+                <td><?php echo $this->escapeHtml($album->genero);?></td>
+                <td><?php echo $this->escapeHtml($album->ano);?></td>
+                <td>
+                    <a class="btn btn-xs btn-info" title="Visualizar" href="<?php echo $this->url('albuns', array("action" => "detalhes", "id" => $album->id,)); ?>"><span class="glyphicon glyphicon-new-window"></span></a>
+                    <a class="btn btn-xs btn-warning" title="Editar" href="<?php echo $this->url('albuns', array("action" => "editar", "id" => $album->id,)); ?>"><span class="glyphicon glyphicon-edit"></span></a>
+                    <a class="btn btn-xs btn-danger" title="Deletar" href="<?php echo $this->url('albuns', array("action" => "deletar", "id" => $album->id,)); ?>"><span class="glyphicon glyphicon-floppy-remove"></span></a>
+                </td>
+            </tr>
+        <?php endforeach; ?>
         <tr>
             <td colspan="6"></td>
         </tr>
     </tbody>
 </table>
+
+
+
+
+
 
 
 <?php $this->headScript()->captureStart(); ?>
@@ -96,7 +63,7 @@ $(function(){
         // variável contendo o id referente ao botão clicado
         var contato_id  = $(this).attr('href').split(url_deletar).pop();
         // variável contendo mensagem da janela
-        var mensagem = "Deseja realmente apagar o contato de ID " + contato_id + "?";
+        var mensagem = "Deseja realmente apagar o álbum de ID " + contato_id + "?";
         // variável com resposta da mensagem colocada na janela
         var confirmacao = confirm(mensagem);
  

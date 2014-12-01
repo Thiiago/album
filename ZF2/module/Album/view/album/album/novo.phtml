@@ -8,33 +8,83 @@
             Novo Álbum          
         </div>
     </div>
-    <form class="form-horizontal" role="form" method="POST" action="<?php echo $this->url('albuns', array('action' => 'adicionar')); ?>">
+    <?php
+    // objeto form contato
+    $formAlbum = $this->formAlbum;
+    // preparar elementos do formulário
+    $formAlbum->prepare();
+    // configurar url formulário
+    $formAlbum->setAttribute('action', $this->url('albuns', array('action' => 'adicionar')));
+    ?>
+    
+    <?php // renderiza html <form> com atributos configurados no objeto ?>
+    <?php echo $this->form()->openTag($formAlbum) ?>
         <div class="panel-body">
             <div class="form-group">
                 <label for="inputArtista" class="col-lg-3 col-md-3 control-label">Artista:</label>
                 <div class="col-lg-9 col-md-9">
-                    <input type="text" name="artista" class="form-control" id="inputNome" placeholder="Nome completo">
+                    <?php 
+                    // renderiza html input
+                    echo $this->formInput($formAlbum->get('artista'));
+
+                    // renderiza elemento de erro
+                    echo $this->formElementErrors()
+                            ->setMessageOpenFormat('<small class="text-danger">')
+                            ->setMessageSeparatorString('</small><br/><small class="text-danger">')
+                            ->setMessageCloseString('</small>')
+                            ->render($formAlbum->get('artista'));
+                    ?>
                 </div>
             </div>
  
-            <div class="form-group">
+            <br><div class="form-group">
                 <label for="inputTitulo" class="col-lg-3 col-md-3 control-label">Título do álbum:</label>
                 <div class="col-lg-9  col-md-9">
-                    <input type="text" name="titulo" class="form-control" id="inputTelefonePrincipal" placeholder="Título do álbum">
+                    <?php
+                    // renderiza html input
+                    echo $this->formInput($formAlbum->get('titulo'));
+
+                    // renderiza elemento de erro
+                    echo $this->formElementErrors()
+                            ->setMessageOpenFormat('<small class="text-danger">')
+                            ->setMessageSeparatorString('</small><br/><small class="text-danger">')
+                            ->setMessageCloseString('</small>')
+                            ->render($formAlbum->get('titulo'));
+                    ?>
                 </div>
             </div>
  
-            <div class="form-group">
+            <br><div class="form-group">
                 <label for="inputGenero" class="col-lg-3 col-md-3 control-label">Gênero:</label>
                 <div class="col-lg-9  col-md-9">
-                    <input type="text" name="genero" class="form-control" id="inputTelefoneSecundario" placeholder="Gênero musical">
+                    <?php
+                    // renderiza html input
+                    echo $this->formInput($formAlbum->get('genero'));
+
+                    // renderiza elemento de erro
+                    echo $this->formElementErrors()
+                            ->setMessageOpenFormat('<small class="text-danger">')
+                            ->setMessageSeparatorString('</small><br/><small class="text-danger">')
+                            ->setMessageCloseString('</small>')
+                            ->render($formAlbum->get('genero'));
+                    ?>
                 </div>
             </div>
             
-            <div class="form-group">
+            <br><div class="form-group">
                 <label for="inputAno" class="col-lg-3 col-md-3 control-label">Ano:</label>
                 <div class="col-lg-9  col-md-9">
-                    <input type="text" name="ano" class="form-control" id="inputTelefoneSecundario" placeholder="Ano">
+                    <?php
+                    // renderiza html input
+                    echo $this->formInput($formAlbum->get('ano'));
+
+                    // renderiza elemento de erro
+                    echo $this->formElementErrors()
+                            ->setMessageOpenFormat('<small class="text-danger">')
+                            ->setMessageSeparatorString('</small><br/><small class="text-danger">')
+                            ->setMessageCloseString('</small>')
+                            ->render($formAlbum->get('ano'));
+                    ?>
                 </div>
             </div>
         </div>
@@ -42,5 +92,10 @@
             <button type="submit" class="btn btn-primary">Salvar álbum</button>
             <a href="<?php echo $this->url('albuns'); ?>" class="btn btn-default">Voltar</a>
         </div>
-    </form>
+    <?php // renderiza html </form> ?>
+    <?php echo $this->form()->closeTag() ?>
 </div>﻿
+
+
+
+
